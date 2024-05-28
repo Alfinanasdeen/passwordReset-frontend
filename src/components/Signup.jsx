@@ -2,6 +2,7 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import config from "../../config";
 
 function Signup() {
   const [name, setName] = useState();
@@ -12,7 +13,7 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/Signup", {
+      .post(`${config.apiBaseUrl}/Signup`, {
         name,
         email,
         password,

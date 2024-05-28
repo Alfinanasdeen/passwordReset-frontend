@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import config from "../../config";
 
 function Home() {
   const [suc, setSuc] = useState("");
@@ -8,7 +9,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/Home")
+      .get(`${config.apiBaseUrl}/Home`)
       .then((res) => {
         if (res.data === "success") {
           setSuc("Successful");

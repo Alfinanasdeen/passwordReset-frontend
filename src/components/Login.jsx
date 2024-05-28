@@ -2,6 +2,10 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import config from "../../config";
+
+console.log("VITE_API_BASE_URL:", import.meta.env.VITE_API_BASE_URL);
+console.log("URL:", config.apiBaseUrl);
 
 function Login() {
   const [email, setEmail] = useState();
@@ -14,7 +18,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/", {
+      .post(`${config.apiBaseUrl}/`, {
         email,
         password,
       })
